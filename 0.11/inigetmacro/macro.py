@@ -6,7 +6,7 @@
 
    @author Douglas Clifton <dwclifton@gmail.com>
    @date December, 2008
-   @verion 0.1
+   @version 0.11.0.1
 """
 
 from trac.core import *
