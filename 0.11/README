@@ -1,0 +1,32 @@
+IniGetMacro
+===========
+
+Allows the ``wiki`` author to insert the value of a trac.ini configuration option into a page.
+
+Useful for ``WikiStart`` project templates.
+
+Installation
+============
+
+python setup.py bdist_egg
+cp dist/*.egg /trac/env/Project/plugins
+
+Configuration
+=============
+
+Enable the macro in:
+
+/trac/env/Project/conf/trac.ini:
+
+    [components]
+    inigetmacro.* = enabled
+
+Example
+=======
+
+    = Welcome to the [[IniGet(project.name)]] Project =
+
+Source
+======
+
+I don't do Subverion. Get the source at:
