@@ -19,7 +19,7 @@ Enable the macro in:
 /trac/env/Project/conf/trac.ini:
 
     [components]
-    inigetmacro.* = enabled
+    iniget.* = enabled
 
 Example
 =======

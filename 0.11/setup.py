@@ -5,8 +5,8 @@ from setuptools import setup
 
 setup(
     name = 'TracIniGetMacro',
-    packages = ['inigetmacro'],
-    version = '0.11.0.1',
+    packages = ['iniget'],
+    version = '0.11.1',
 
     author = 'Douglas Clifton',
     author_email = 'dwclifton@gmail.com',
@@ -16,15 +16,7 @@ setup(
     url = 'http://trac-hacks.org/wiki/IniGetMacro',
     license = 'BSD',
 
-    classifiers = [
-        'Framework :: Trac',
-    ],
-    
+    classifiers = ['Framework :: Trac'],
     install_requires = ['Trac'],
-
-    entry_points = {
-        'trac.plugins': [
-            'inigetmacro.macro = inigetmacro.macro',
-        ]
-    }
+    entry_points = {'trac.plugins': ['iniget.macro = iniget.macro']}
 )
