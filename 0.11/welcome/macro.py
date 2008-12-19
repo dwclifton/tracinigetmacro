@@ -1,8 +1,8 @@
-""" @package IniGetMacro
+""" @package WelcomeMacro
     @file macro.py
-    @brief The IniGetMacro class
+    @brief The WelcomeMacro class
 
-    Return the value of a trac.ini [section] option as plain text.
+    Return a welcome heading with the project name extracted from trac.ini.
 
     @author Douglas Clifton <dwclifton@gmail.com>
     @date December, 2008
@@ -13,21 +13,23 @@ from trac.core import *
 from trac.wiki.macros import WikiMacroBase
 from trac.wiki.formatter import system_message
 from trac.config import Option
+from genshi.builder import tag
 import re
 
-__all__ = ['IniGetMacro']
+__all__ = ['WelcomeMacro']
 
-class IniGetMacro(WikiMacroBase):
+class WelcomeMacro(WikiMacroBase):
 
     def expand_macro(self, formatter, name, args):
-        """Return value of a trac.ini [section].option as plain text."""
-        
-        if args.find('.') == -1:
-            return system_message('%s: Invalid parameter: "%s"' % (name, args))
-        section, option = re.sub('\s+', '', args).split('.', 1)
+        """Return a welcome heading with the project name extracted from trac.ini."""
 
+        section = 'project'
+        option = 'name'
+        
         if self.config.has_option(section, option):
-            return (self.config.get(section, option))
+            return tag.h1('Welcome to the %s Project' % self.config.get(section,
+                                                                        option),
+                          id='welcome')
         else:
             return system_message('%s: No option "%s" in section [%s]' % (name,
                                                                           option,

@@ -1,33 +1,60 @@
-IniGetMacro
-===========
+= !IniGetMacro =
 
-Allows the ``wiki`` author to insert the value of a trac.ini configuration option into a page.
+The !IniGetMacro package consists of two macros. The first, !IniGet, returns as
+plain text the value of a [http://trac-hacks.org/wiki/TracIni trac.ini] configuration
+option. The '''`trac.ini`''' file is a simple database of sections and option/value
+pairs:
 
-Useful for ``WikiStart`` project templates.
+{{{
+[section]
+name = value
+}}}
 
-Installation
-============
+By calling the macro like so: `[[IniGet(section.name)]]`, it returns the value.
+If no option matches, it returns an error message. Some option names themselves
+contain periods, this is supported.
 
+The second macro in the package is Welcome, and it returns a level 1 heading
+element in the following format:
+
+{{{
+<h1 id="welcome">Welcome to the project.name Project</h1>
+}}}
+
+Where project.name is dynamically inserted in the same manner as !IniGet.
+
+These macros are useful for WikiStart project templates.
+
+== Installation ==
+
+{{{
 python setup.py bdist_egg
 cp dist/*.egg /trac/env/Project/plugins
+}}}
 
-Configuration
-=============
+== Configuration ==
 
-Enable the macro in:
+Enable the macros in:
 
 /trac/env/Project/conf/trac.ini:
 
-    [components]
-    iniget.* = enabled
+{{{
+[components]
+iniget.* = enabled
+welcome.* = enabled
+}}}
 
-Example
-=======
+Then restart you Web server.
 
-    = Welcome to the [[IniGet(project.name)]] Project =
+== Examples ==
 
-Source
-======
+{{{
+[[Welcome]]
 
-Browse the source: http://github.com/dwclifton/tracinigetmacro/tree/master
-Public clone URL: git clone git://github.com/dwclifton/tracinigetmacro.git
+The [[IniGet(project.name)]] project consists of a...
+}}}
+
+== Source ==
+
+Browse the source: [http://github.com/dwclifton/tracinigetmacro/tree/master][[BR]]
+Public clone URL: `git clone git://github.com/dwclifton/tracinigetmacro.git`
