@@ -23,6 +23,12 @@ element in the following format:
 
 Where project.name is dynamically inserted in the same manner as !IniGet.
 
+The example above is the default behavior. However, Welcome also supports from
+zero to two arguments that allow the user to specify the prefix and/or suffix
+strings. Both standard and dictionary keyword methods are supported. If using
+the standard method, order is important. Using the keyword method it is not.
+You cannot mix both methods.
+
 These macros are useful for WikiStart project templates.
 
 == Installation ==
@@ -50,8 +56,13 @@ Then restart you Web server.
 
 {{{
 [[Welcome]]
+[[Welcome()]]
+[[Welcome(This is the,Project)]]
+[[Welcome(prefix=This is the,suffix=Project)]]
+[[Welcome(suffix=Super Cool Project)]]
+[[Welcome(,Super Cool Project)]]
 
-The [[IniGet(project.name)]] project consists of a...
+The [[IniGet(project.name)]] project is designed to track and document software defects...
 }}}
 
 == Source ==
