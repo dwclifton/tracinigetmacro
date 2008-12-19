@@ -24,14 +24,12 @@ class WelcomeMacro(WikiMacroBase):
     def expand_macro(self, formatter, name, args):
         """ Return a welcome heading with the project name extracted from trac.ini.
 
-            User-defined welcome string suffix and prefix.
-            Supports both standard and dictionary methods.
-            With defaults.
+            + User-defined welcome string suffix and prefix.
+            + Supports both standard and dictionary methods.
+            + With defaults.
         """
+        prefix = suffix = ''
         args, kw = parse_args(args)
-
-        prefix = ''
-        suffix = ''
 
         if args:
             prefix = args.pop(0).strip()
@@ -44,7 +42,6 @@ class WelcomeMacro(WikiMacroBase):
             'prefix': 'Welcome to the',
             'suffix': 'Project'
         }
-
         if not prefix: prefix = default['prefix']
         if not suffix: suffix = default['suffix']
 
