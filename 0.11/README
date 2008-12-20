@@ -67,7 +67,7 @@ The [[IniGet(project.name)]] project is designed to track and document software 
 
 == Source ==
 
-Browse the source: [http://github.com/dwclifton/tracinigetmacro/tree/master GitHub][[BR]]
+Browse the source at: [http://github.com/dwclifton/tracinigetmacro/tree/master GitHub][[BR]]
 Public clone URL:
 {{{
 git clone git://github.com/dwclifton/tracinigetmacro.git
